@@ -1,0 +1,100 @@
+<div class=" login d-flex justify-content-center bg-primary w-50 mt-5 reg">
+<form class="d-flex text-light flex-column justify-content-center align-items-center w-50" [formGroup]="userRegForm" (ngSubmit)="onSubmit()">
+    <h1>register</h1>
+    <div class="frominputgroup">
+      <p>firstname</p>
+      <input type="text" class="form-control" id='fname' placeholder="firstname" formControlName='firstName'>
+        <div class="text-danger" *ngIf="firstName.hasError('required') && firstName.touched">   
+            name is required   
+        </div>
+        <div class="text-danger" *ngIf="firstName.hasError('minlength') && firstName.touched">   
+          minimum 4 chracter required
+      </div>
+        <!-- <div class="text-danger" *ngIf="firstName && firstName.invalid && firstName.touched ">   
+          maxlength
+      </div> -->
+        
+       
+    </div>
+    <div class="frominputgroup">
+      <p>lastname</p>
+      <input type="text" class="form-control" id='lname' placeholder="lastname" formControlName='lastName'>
+      <div class="text-danger" *ngIf="lastName.hasError('required') && lastName.touched">   
+        name is required   
+    </div>
+    <div class="text-danger" *ngIf="lastName.hasError('minlength') && lastName.touched">   
+      minimum 4 chracter required
+  </div>
+    </div>
+    <div class="frominputgroup">
+      <p>phonenumber</p>
+      <input type="tel" id='p-num'class="form-control" placeholder="phonenumber" formControlName='phonenum'>
+      <!-- <div class="text-danger" *ngIf="userRegForm.get('phonenum').hasError('required') && userRegForm.get('phonenum').touched ">   
+        phonenum is required   
+    </div>
+    <div class="text-danger" *ngIf="userRegForm.get('phonenum').hasError('minlength') && userRegForm.get('phonenum').touched">   
+      minimum 10 chracter required
+  </div>
+
+<div class="text-danger" *ngIf="userRegForm.get('phonenum').hasError('pattern') && userRegForm.get('phonenum').touched">   
+  num only
+</div> -->
+
+
+ 
+    <p *ngIf="phonenum.hasError('required') && phonenum.touched" class="text-danger">phone num is required</p>
+    <p *ngIf="phonenum.hasError('pattern')" class="text-danger">Number Only</p>
+    <p *ngIf="phonenum.hasError('minlength')" class="text-danger">minimum 10 nums</p>
+   
+ 
+    </div>
+    <div class="forminputgroup">
+      <p>email</p>
+      <input type="email"id='email' class="form-control" placeholder="email" formControlName='email'>
+      <div class="" *ngIf="email && (email.dirty || email.touched)">
+        <p *ngIf="email.hasError('required')" class="text-danger">email is required</p>
+        <p *ngIf="email.hasError('email')" class="text-danger">enter valid mail</p>
+       
+      </div>
+    </div>
+    <div formGroupName="address">
+    <div>
+      <p>address1</p>
+      <input type="text" class="form-control" placeholder="address1" name="" id="" formControlName="address1">
+      
+          
+
+       <div class="text-danger" *ngIf="userRegForm.get(['address','address1']).hasError('required') && userRegForm.get(['address','address1']).touched">   
+        enter address 1
+    </div>
+      
+    </div>  
+    <div>
+      <p>address2</p>
+      <input type="text" class="form-control" placeholder="address2" name="" id="" formControlName="address2">
+      <div class="text-danger" *ngIf="userRegForm.get(['address','address2']).hasError('required') && userRegForm.get(['address','address2']).touched">   
+        enter address 2
+    </div>
+    </div> 
+    <div>
+      <p>state</p>
+      <input type="text" class="form-control" placeholder="state" name="" id="" formControlName="state">
+      <div class="text-danger" *ngIf="userRegForm.get(['address','state']).hasError('required') && userRegForm.get(['address','state']).touched">   
+        enter state
+    </div>
+    </div>
+    <div>
+      <p>pincode</p>
+      <input type="number" class="form-control" placeholder="pincode" name="" id="" formControlName="pinCode">
+      <div class="text-danger" *ngIf="userRegForm.get(['address','pinCode']).hasError('required') && userRegForm.get(['address','pinCode']).touched">   
+        enter pincode
+    </div>
+    </div>  
+     
+
+    </div>
+    <a href="" id="linksing"> <button class="btn bg-warning my-2" [disabled]='!userRegForm.valid' type="submit">register</button></a>
+    <p ><a class="text-light" routerLink='/login'> if u have accout login</a></p>
+  </form>
+
+</div>

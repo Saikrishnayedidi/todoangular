@@ -1,0 +1,17 @@
+<div class='main-container col-md-3 d-flex justify-content-center  mt-5 search' >
+    <div class="input-group ">
+        <input type="text"   class="form-control" placeholder="filter" >
+        <span class="input-group-text"><i class="fas fa-search"></i></span>
+      </div>
+      <div class="notes-list">
+          <app-listcard *ngFor='let note of notes;index as i'
+         [link]="i.toString()"
+           [title]="note.title"
+           (delete)="deleteCard(i)"
+            [company]="note.company" 
+            [description]="note.description">
+        </app-listcard>
+      </div>
+
+      <button class="btn btn-primary col-md-3 add" routerLink='/new'>add</button>
+</div>

@@ -1,0 +1,10 @@
+<div class="card mt-5" >
+  <a [routerLink]="link">
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{company}}</h6>
+      <p class="card-text">{{description}}</p>
+    </div>
+    </a>
+    <button class=" delete btn position-absolute top-0 end-0 text-danger  " (click)='delete()'><i class="fas fa-times"></i></button>
+  </div>

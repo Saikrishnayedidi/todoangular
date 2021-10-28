@@ -1,0 +1,21 @@
+<div class=" login d-flex justify-content-center bg-primary w-50 mt-5">
+    <form [formGroup]="signUpForm" class="d-flex text-light flex-column justify-content-center align-items-center " action="form" id='usesin' (ngSubmit)='onSubmit()'>
+        <h1>sign in</h1>
+        <div class="frominputgroup">
+          <p>email</p>
+          <input formControlName="email" type="email" id='e-mail' class="form-control" placeholder="email" aria-label="Username"
+            aria-describedby="basic-addon1">
+            <span class='text-danger' *ngIf= "email && email.invalid && email.touched">plz enter the mail</span> 
+        </div>
+        <div class="forminputgroup">
+          <p>new password</p>
+          <input formControlName="password" type="password" id='p-word'class="form-control" placeholder="newpassword" aria-label="Username"
+            aria-describedby="basic-addon1">
+            <span class='text-danger'  *ngIf=" password && password.invalid && password.touched">plz enter the password</span> 
+        </div>
+        <button id='sign-btn'class="btn bg-warning my-2"  [disabled]='!signUpForm.valid' type="submit">sign in</button>
+        <p ><a class="text-light" routerLink='/signin'> if u  new user plz register</a></p>
+        </form>   
+</div>
+
+
